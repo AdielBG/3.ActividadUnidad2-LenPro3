@@ -1,0 +1,137 @@
+﻿@model EstudianteViewModel;
+
+@{
+    ViewData["Title"] = "Registro de Estudiante";
+}
+
+<style>
+
+    /* form div{
+        margin-bottom:20px;
+
+    }
+
+    label{
+
+    } */
+
+</style>
+
+<h2>Registro de Estudiante</h2>
+<br />
+
+<div class="container container-lg form-control ">
+
+    <form class="form" asp-action="Registrar" asp-controller="Estudiantes" method="post">
+        <div>
+            <label asp-for="NombreCompleto"></label>
+            <input asp-for="NombreCompleto" />
+            <span asp-validation-for="NombreCompleto" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Matricula"></label>
+            <input asp-for="Matricula" />
+            <span asp-validation-for="Matricula" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Carrera"></label>
+            <select asp-for="Carrera" asp-items="@(new SelectList (
+                                                   new[] { "Ingeniería de Software", 
+                                                           "Contabilidad", 
+                                                           "Enfermería",
+                                                           "Odontología",
+                                                           "Derecho" }
+                                                            ))">
+                <option value="">-- Seleccione una carrera --</option>
+            </select>
+            <span asp-validation-for="Carrera" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="CorreoInstitucional"></label>
+            <input asp-for="CorreoInstitucional" type="email" />
+            <span asp-validation-for="CorreoInstitucional" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Telefono"></label>
+            <input asp-for="Telefono" />
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="FechaNacimiento"></label>
+            <input asp-for="FechaNacimiento" type="date" />
+            <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label>Género:</label><br />
+            <input asp-for="Genero" type="radio" value="Masculino" /> Masculino
+            <input asp-for="Genero" type="radio" value="Femenino" /> Femenino
+            <input asp-for="Genero" type="radio" value="Otro" /> Otro
+            <span asp-validation-for="Genero" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="Turno"></label>
+            <select asp-for="Turno" asp-items="@(new SelectList(
+                                                 new[] { "Mañana", 
+                                                         "Tarde", 
+                                                         "Noche" }
+                                                         ))">
+                <option value="">-- Seleccione turno --</option>
+            </select>
+            <span asp-validation-for="Turno" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="TipoIngreso"></label>
+            <select asp-for="TipoIngreso" asp-items="@(new SelectList(
+                                                       new[] { "Nuevo Ingreso",
+                                                               "Reingreso",
+                                                               "Transferencia" }
+                                                               ))">
+                <option value="">-- Seleccione tipo de ingreso --</option>
+            </select>
+            <span asp-validation-for="TipoIngreso" class="text-danger"></span>
+        </div>
+
+        <div>
+            <label asp-for="EstaBecado"></label>
+            <input asp-for="EstaBecado" type="checkbox" />
+        </div>
+
+        <div>
+            <label asp-for="PorcentajeBeca"></label>
+            <input asp-for="PorcentajeBeca" type="number" min="0" max="100" />
+            <span asp-validation-for="PorcentajeBeca" class="text-danger"></span>
+        </div>
+
+        <div class="form-check">
+            <input type="hidden" asp-for="TerminosYCondiciones" value="false" />
+            <input class="form-check-input" type="checkbox" asp-for="TerminosYCondiciones" value="true" />
+            <label class="form-check-label" asp-for="TerminosYCondiciones">Acepto los términos y condiciones</label>
+            <span asp-validation-for="TerminosYCondiciones" class="text-danger"></span>
+
+
+        </div>
+
+
+
+        <div>
+            <button class="btn btn-primary" type="submit">Registrar</button>
+        </div>
+    </form>
+
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+
