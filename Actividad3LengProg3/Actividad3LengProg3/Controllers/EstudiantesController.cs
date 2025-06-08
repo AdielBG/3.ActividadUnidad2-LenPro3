@@ -19,7 +19,7 @@ namespace Actividad3LengProg3.Controllers
             {
                 estudiantes.Add(estudiante);
                 TempData["Mensaje"] = "Estudiante registrado exitosamente.";
-                //return RedirectToAction("Lista");
+                return RedirectToAction("Lista");
             }
             return View("Index", estudiante);
         }

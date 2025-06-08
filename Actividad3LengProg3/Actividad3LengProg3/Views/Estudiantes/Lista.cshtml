@@ -1,0 +1,56 @@
+﻿@model List<Actividad3LengProg3.Models.EstudianteViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Estudiantes Registrados";
+}
+
+<h2>Estudiantes Registrados</h2>
+
+@if (Model != null && Model.Count > 0)
+{
+    <table class=" table table-primary">
+        <thead>
+            <tr>
+                <th>Nombre Completo</th>
+                <th>Matrícula</th>
+                <th>Carrera</th>
+                <th>Correo</th>
+                <th>Teléfono</th>
+                <th>Fecha Nac.</th>
+                <th>Género</th>
+                <th>Turno</th>
+                <th>Tipo Ingreso</th>
+                <th>Beca</th>
+                <th>Porc. Beca</th>
+                <th>Acción</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var est in Model)
+            {
+                <tr>
+                    <td>@est.NombreCompleto</td>
+                    <td>@est.Matricula</td>
+                    <td>@est.Carrera</td>
+                    <td>@est.CorreoInstitucional</td>
+                    <td>@est.Telefono</td>
+                    <td>@est.FechaNacimiento.ToShortDateString()</td>
+                    <td>@est.Genero</td>
+                    <td>@est.Turno</td>
+                    <td>@est.TipoIngreso</td>
+                    <td>@(est.EstaBecado ? "Sí" : "No")</td>
+                    <td>@est.PorcentajeBeca %</td>
+                    <td>
+                        <a href="/Estudiantes/Editar?matricula=@est.Matricula">Editar</a>
+                        <a href="@Url.Action("Eliminar", "Estudiantes", new { matricula = est.Matricula })">Eliminar</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No hay estudiantes registrados aún.</p>
+}
+

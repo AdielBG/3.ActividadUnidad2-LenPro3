@@ -24,7 +24,7 @@
 
     <form class="form" asp-action="Registrar" asp-controller="Estudiantes" method="post">
         <div>
-            <label asp-for="NombreCompleto"></label>
+            <label asp-for="NombreCompleto">Nombre Completo</label>
             <input asp-for="NombreCompleto" />
             <span asp-validation-for="NombreCompleto" class="text-danger"></span>
         </div>
@@ -50,7 +50,7 @@
         </div>
 
         <div>
-            <label asp-for="CorreoInstitucional"></label>
+            <label asp-for="CorreoInstitucional">Correo Institucional</label>
             <input asp-for="CorreoInstitucional" type="email" />
             <span asp-validation-for="CorreoInstitucional" class="text-danger"></span>
         </div>
@@ -62,7 +62,7 @@
         </div>
 
         <div>
-            <label asp-for="FechaNacimiento"></label>
+            <label asp-for="FechaNacimiento">Fecha Nacimiento</label>
             <input asp-for="FechaNacimiento" type="date" />
             <span asp-validation-for="FechaNacimiento" class="text-danger"></span>
         </div>
@@ -88,7 +88,7 @@
         </div>
 
         <div>
-            <label asp-for="TipoIngreso"></label>
+            <label asp-for="TipoIngreso">Tipo de Ingreso</label>
             <select asp-for="TipoIngreso" asp-items="@(new SelectList(
                                                        new[] { "Nuevo Ingreso",
                                                                "Reingreso",
@@ -100,12 +100,12 @@
         </div>
 
         <div>
-            <label asp-for="EstaBecado"></label>
+            <label asp-for="EstaBecado">¿Esta Becado?</label>
             <input asp-for="EstaBecado" type="checkbox" />
         </div>
 
         <div>
-            <label asp-for="PorcentajeBeca"></label>
+            <label asp-for="PorcentajeBeca">Porcentaje de su Beca</label>
             <input asp-for="PorcentajeBeca" type="number" min="0" max="100" />
             <span asp-validation-for="PorcentajeBeca" class="text-danger"></span>
         </div>
