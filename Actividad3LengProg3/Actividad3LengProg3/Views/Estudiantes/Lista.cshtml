@@ -4,7 +4,14 @@
     ViewData["Title"] = "Lista de Estudiantes Registrados";
 }
 
-<h2>Estudiantes Registrados</h2>
+<h2>Estudiantes Registrados</h2> 
+<br />
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-success">@TempData["Mensaje"]</div>
+}
+
 
 @if (Model != null && Model.Count > 0)
 {
@@ -41,8 +48,8 @@
                     <td>@(est.EstaBecado ? "Sí" : "No")</td>
                     <td>@est.PorcentajeBeca %</td>
                     <td>
-                        <a href="/Estudiantes/Editar?matricula=@est.Matricula">Editar</a>
-                        <a href="@Url.Action("Eliminar", "Estudiantes", new { matricula = est.Matricula })">Eliminar</a>
+                        <a class="btn btn-success m-2" href="/Estudiantes/Editar?matricula=@est.Matricula">Editar</a>
+                        <a class="btn btn-danger" href="@Url.Action("Eliminar", "Estudiantes", new { matricula = est.Matricula })">Eliminar</a>
                     </td>
                 </tr>
             }
