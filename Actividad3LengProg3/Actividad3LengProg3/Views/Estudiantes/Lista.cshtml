@@ -49,7 +49,7 @@
                     <td>@est.PorcentajeBeca %</td>
                     <td>
                         <a class="btn btn-success m-2" href="/Estudiantes/Editar?matricula=@est.Matricula">Editar</a>
-                        <a class="btn btn-danger" href="@Url.Action("Eliminar", "Estudiantes", new { matricula = est.Matricula })">Eliminar</a>
+                        <a class="btn btn-danger" href="/Estudiantes/Eliminar?matricula=@est.Matricula">Eliminar</a>
                     </td>
                 </tr>
             }

@@ -84,9 +84,25 @@ namespace Actividad3LengProg3.Controllers
 
         public IActionResult Eliminar(string matricula)
         {
+            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
+            if (estudiante == null)
+            {
+                TempData["Mensaje"] = "No existe el usuario indicado";
+                return RedirectToAction("Lista");
+            }
+            return View(estudiante);
+        }
 
-            return View();
+        [HttpPost]
+        public IActionResult EliminarConfirmado(string matricula)
+        {
+            var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
+            if (estudiante != null)
+            {
+                estudiantes.Remove(estudiante);
+            }
 
+            return RedirectToAction("Lista");
         }
 
     }
