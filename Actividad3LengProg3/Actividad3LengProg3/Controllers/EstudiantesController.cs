@@ -71,7 +71,7 @@ namespace Actividad3LengProg3.Controllers
                 original.Turno = estudiante.Turno;
                 original.TipoIngreso = estudiante.TipoIngreso;
                 original.PorcentajeBeca = estudiante.PorcentajeBeca;
-                original.TerminosYCondiciones = estudiante.TerminosYCondiciones;
+                //original.TerminosYCondiciones = estudiante.TerminosYCondiciones;
 
                 TempData["Mensaje"] = "Actualizaciones realizadas correctamente";
                 return RedirectToAction("Lista");
@@ -99,6 +99,7 @@ namespace Actividad3LengProg3.Controllers
             var estudiante = estudiantes.FirstOrDefault(e => e.Matricula == matricula);
             if (estudiante != null)
             {
+                TempData["Mensaje"] = "Estudiante sustraido correctamente";
                 estudiantes.Remove(estudiante);
             }
 

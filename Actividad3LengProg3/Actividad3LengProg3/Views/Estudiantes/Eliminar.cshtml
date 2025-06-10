@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Eliminar Estudiante";
+    Layout = "/Views/Shared/LayoutEstudiantes.cshtml";
 }
 
 <h2>Eliminar Estudiante</h2>
@@ -11,6 +12,9 @@
 {
     <div class="alert alert-success">@TempData["Mensaje"]</div>
 }
+
+
+<div class="container">
 
 <p>¿Estás seguro de que deseas eliminar el siguiente estudiante?</p>
 
@@ -27,3 +31,4 @@
     <a class="btn btn-success" href="/Estudiantes/Lista">Cancelar</a>
 </form>
 
+</div>
