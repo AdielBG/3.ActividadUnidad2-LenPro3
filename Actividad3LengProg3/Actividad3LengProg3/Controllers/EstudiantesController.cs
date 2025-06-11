@@ -16,12 +16,12 @@ namespace Actividad3LengProg3.Controllers
         [HttpPost]
         public IActionResult Registrar(EstudianteViewModel estudiante)
         {
-            if (ModelState.IsValid)
+            if (ModelState.IsValid) //Verificar si los datos del modelo que se envían son válidos.
             {
                 estudiantes.Add(estudiante);
                 TempData["Mensaje"] = "Estudiante registrado exitosamente.";
-                return RedirectToAction("Lista");
-                
+                return RedirectToAction("Lista"); //Redirigir al usuario a la accion Lista
+
             }
            
                 return View();
